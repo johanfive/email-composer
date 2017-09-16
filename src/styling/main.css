@@ -1,0 +1,70 @@
+* {
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: 0;
+  letter-spacing: 1.2;
+}
+
+.editorWrapper {
+  position: fixed;
+  top:0;
+  width: 100%;
+  height: 30%;
+}
+
+.editor {
+  border: 1px solid black;
+  height: 70%;
+  overflow: auto;
+  padding: .5em;
+}
+
+.controls {
+  border: 1px solid black;
+  width: 100%;
+  height: 30%;
+  border-bottom: 0;
+}
+
+.clickBoard {
+  position: fixed;
+  top: 30%;
+  right: 0;
+  overflow: auto;
+  width: 100%;
+  height: 70%;
+  padding: 1.5em;
+  composes: main from "./colors.css";
+/*
+  background-image: url("./bg.jpg");
+  for this to work the url loader must be installed and configured in webpack
+*/
+}
+
+.loginThings {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+.loginThings div, .loginThings div>button {color: white;}
+
+@media (min-width: 40.60rem) and (orientation: landscape) {
+  .clickBoard {
+  width: 67%;
+  height: 100%;
+  top:0;
+  }
+  .editorWrapper {
+    width: 33%;
+    height: 100%;
+  }
+  .editor {
+    height: 95%;
+  }
+  .controls {
+    height: 5%;
+  }
+}

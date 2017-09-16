@@ -1,0 +1,51 @@
+.label {
+  font-size: 1rem;
+  margin-bottom: 1.5em;
+}
+
+.header {
+  font-size: 1.5em;
+  composes: header from "./colors.css";
+}
+
+.header input {
+  width: 100%;
+  padding: 0 1em;
+  margin-bottom: 1em;
+  color: inherit;
+  font-family: 'Roboto', sans-serif;
+}
+
+.addOneBit {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  width: 100%;
+  padding: .5em;
+  composes: bitInput from "./colors.css";
+  font-family: 'Roboto', sans-serif;
+}
+
+.bitsList {
+  padding: 1em 0 0 1em;
+  composes: bitsContainer from "./colors.css";
+}
+
+@media (min-width: 950px) {
+  .label {
+    max-width: 43%;
+    float: left;
+    margin: 0 1.5em 1.5em 0;
+  }
+}
+
+@media (min-width: 1550px) {
+  .label {
+    max-width: 29%;
+  }
+}
+
+@media (min-width: 2200px) {
+  .label {
+    max-width: 22.5%;
+  }
+}

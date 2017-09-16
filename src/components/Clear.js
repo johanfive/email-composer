@@ -1,13 +1,8 @@
 import React from 'react';
-import {connect} from 'react-redux';
-// import all actions as action for readability
-import * as action from '../actions/actions';
+import style from "../styling/button.css";
 
+const Clear = (props) => (
+  <button className={style.inControls} onClick={props.handleClick} value={''} >Clear</button>
+);
 
-const Close = (props) => <button onClick={props.clear} >Clear</button>;
-
-const mapDispatchToProps = dispatch => ({
-  clear: () => dispatch(action.clear())
-});
-
-export default connect(null, mapDispatchToProps)(Close);
+export default Clear;

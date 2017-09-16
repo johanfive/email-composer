@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Route, browserHistory } from 'react-router';
 
-import Home from './components/Home';
+import Compoz from './components/Compoz';
 
 // TODO look into server rendering + history solutions
 
@@ -9,6 +9,6 @@ import Home from './components/Home';
 // But having it ready to go will make adding new features easier.
 export default (
 <Router history={browserHistory}>
-  <Route path="/" component={Home} />
+  <Route path="/" component={Compoz} />
 </Router>
 );

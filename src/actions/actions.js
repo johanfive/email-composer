@@ -4,18 +4,9 @@
 
 
 //--- L A B E L related actions ---//
-let labelId = 0;
-
-export const addLabel = () => (
+export const upsertLabel = (id, name) => (
   {
-    type : 'ADD_LABEL',
-    id: 'label'+labelId++
-  }
-);
-
-export const updateLabel = (id, name) => (
-  {
-    type: "UPDATE_LABEL",
+    type: "UPSERT_LABEL",
     id: id,
     name: name
   }
@@ -30,12 +21,10 @@ export const deleteLabel = id => (
 
 
 //--- B I T related actions ---//
-let bitId = 0;
-
-export const addBit = (text, label) => (
+export const upsertBit = (id, text, label) => (
   {
-    type: "ADD_BIT",
-    id: 'bit'+bitId++,
+    type: "UPSERT_BIT",
+    id: id,
     text: text,
     label: label
   }
@@ -48,23 +37,6 @@ export const deleteBit = id => (
   }
 );
 
-
-//--- E M A I L (textarea) related actions ---//
-export const clear = () => ({type : 'CLEAR'});
-
-export const replaceString = string => (
-  {
-    type: "REPLACE_STRING",
-    string: string
-  }
-);
-
-export const pushString = string => (
-  {
-    type: "PUSH_STRING",
-    string: string
-  }
-);
 
  // Staying away from syntactic sugar like shorthand notation to make code very obvious
 // "Forced" indentation to emphasize that action creators return an object
