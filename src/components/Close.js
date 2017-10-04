@@ -1,35 +1,35 @@
 import React from 'react';
-import {connect} from 'react-redux';
-// import selector for "hydrating" props in mapStateToProps
-import {getBitsByLabelId} from '../reducers';
 // import all actions as action for readability
 import * as fbAction from '../actions/fbActions';
-import style from "../styling/button.css";
+import style from '../styling/button.css';
 
 
 class Close extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(e) {
-    if (this.props.labelId) {
-      fbAction.deleteLabel(e.target.value);
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
     }
-    if (this.props.bitId) {
-      fbAction.deleteBit(e.target.value);
-    }
-  }
 
-  render() {
-    return (
-      <button className={style.close} onClick={this.handleClick} value={this.props.bitId || this.props.labelId} >
-        &#9587;
-      </button>
-    );
-  }
+    handleClick(e) {
+        if (this.props.labelId) {
+            fbAction.deleteLabel(e.target.value);
+        }
+        if (this.props.bitId) {
+            fbAction.deleteBit(e.target.value);
+        }
+    }
+
+    render() {
+        return (
+            <button
+                className={style.close}
+                onClick={this.handleClick}
+                value={this.props.bitId || this.props.labelId}
+            >
+                &#9587;
+            </button>
+        );
+    }
 }
 
 export default Close;

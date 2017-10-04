@@ -14,6 +14,9 @@ const byId = (state = initBits, action) => {
       delete(copy[action.id]);
       return copy;
       break;
+    case "LOGOUT":
+      return {};
+      break;
     default:
       return state;
   }
@@ -29,6 +32,9 @@ const allIds = (state = initAllIds, action) => {
       break;
     case "DELETE_BIT":
       return state.filter(id => id !== action.id);
+      break;
+    case "LOGOUT":
+      return [];
       break;
     default:
       return state;
@@ -52,3 +58,7 @@ export const getBitsByLabelId = (state, id) => {
   let allBits = getAllBits(state);
   return allBits.filter(bit => bit.label == id);
 };
+
+export const getTextByBitId = (state, id) => {
+  return state.byId[id].text;
+}

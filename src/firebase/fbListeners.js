@@ -5,15 +5,7 @@ import * as action from '../actions/actions';
 
 
 const db = database.ref();
-/*
-var user = auth.currentUser;
-var userID = 'userID';
-if (user) {
-userID = user.uid;
-}
-*/
 const userRef = db.child('users').child('userID');
-
 
 const objectsToListenTo = [
   {
@@ -74,10 +66,16 @@ class ListWatcher {
   }
 }
 
-const listWatcher = new ListWatcher();
+export const startListening = (userID) => {
 
-export const startListening = () => {
+  const listWatcher = new ListWatcher();
+
   objectsToListenTo.forEach(objectToListenTo => {
     listWatcher.watchList(userRef.child(objectToListenTo.keyPath), objectToListenTo);
   });
+};
+
+export const stopListening = () => {
+  store.dispatch(action.logout());
+  listWatcher = null;
 };

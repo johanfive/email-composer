@@ -1,12 +1,26 @@
+// import dependencies
 import React from 'react';
+// import child Component
 import Close from './Close';
+// Styles
 import style from '../styling/bit.css';
+/*************************************/
 
-const Bit = (props) => (
-  <div className={style.wrapper} >
-    <Close bitId={props.id} />
-    <button className={style.content} onClick={props.onClick} value={props.text}>{props.text}</button>
-  </div>
+
+// TODO: Is there a way to avoid having the editorState prop do a back and forth?
+
+const Bit = ({text, bitId, handleClick, eState}) => (
+    <div className={style.wrapper}>
+        <button
+          className={style.content}
+          type="button"
+          onClick={(e) => {handleClick(e, eState)}}
+          value={text}
+        >
+            {text}
+        </button>
+        <Close bitId={bitId} />
+    </div>
 );
 
 export default Bit;

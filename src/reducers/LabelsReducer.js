@@ -17,6 +17,9 @@ const byId = (state = initLabels, action) => {
       delete(copy[action.id]);
       return copy;
       break;
+    case "LOGOUT":
+      return {};
+      break;
     default:
       return state;
   }
@@ -38,6 +41,9 @@ const allIds = (state = initAllIds, action) => {
     case "DELETE_LABEL":
       return state.filter(id => id !== action.id);
       break;
+    case "LOGOUT":
+      return [];
+      break;
     default:
       return state;
   }
@@ -55,3 +61,11 @@ export default LabelsReducer;
 export const getAllLabels = (state) => {
   return state.allIds.map(id => state.byId[id]);
 };
+
+export const getAllLabelIds = (state) => {
+  return state.allIds;
+};
+
+export const getNameOfLabel = (state, id) => {
+  return state.byId[id].name;
+}

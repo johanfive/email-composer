@@ -1,8 +1,25 @@
 import React from 'react';
-import style from "../styling/button.css";
+import {connect} from 'react-redux';
+import {EditorState, ContentState} from 'draft-js';
+import * as action from '../actions/actions';
+import Command from './Command';
+import style from '../styling/button.css';
+/*************************************/
 
-const Clear = (props) => (
-  <button className={style.inControls} onClick={props.handleClick} value={''} >Clear</button>
-);
 
-export default Clear;
+const mapStateToProps = (state) => ({
+    eState: state.editor.editorState,
+    name: 'Clear'
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    handleClick: (eState) => dispatch(
+        action.updateEstate(
+            EditorState.moveFocusToEnd(
+                EditorState.push(eState, ContentState.createFromText(''))
+            )
+        )
+    )
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Command);
