@@ -1,7 +1,14 @@
 import {combineReducers} from 'redux';
 
 
-const initLabels = {};
+const initLabels = {
+/*
+    anId: {
+        id: 'anId',
+        name: 'aName'
+    },
+*/
+};
 const byId = (state = initLabels, action) => {
   switch (action.type) {
     case "UPSERT_LABEL":
@@ -17,21 +24,18 @@ const byId = (state = initLabels, action) => {
       delete(copy[action.id]);
       return copy;
       break;
-    case "LOGOUT":
-      return {};
-      break;
     default:
       return state;
   }
 };
 
 
-const initAllIds = [];
+const initAllIds = [/* 'anId', */];
 const allIds = (state = initAllIds, action) => {
   switch (action.type) {
     case "UPSERT_LABEL":
       //The .some() function returns true if the callback returns true for any element.
-      let idExist = state.some(id => id == action.id);
+      const idExist = state.some(id => id == action.id);
       if (idExist) {
         return state;
       } else {
@@ -40,9 +44,6 @@ const allIds = (state = initAllIds, action) => {
       break;
     case "DELETE_LABEL":
       return state.filter(id => id !== action.id);
-      break;
-    case "LOGOUT":
-      return [];
       break;
     default:
       return state;

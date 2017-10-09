@@ -6,7 +6,7 @@ import * as action from '../actions/actions';
 // import selector
 import {getTextByBitId} from '../reducers';
 // import child Component
-import Bit from './Bit';
+import Bit from '../components/Bit';
 /*************************************/
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import * as action from '../actions/actions';
-import CompoTE from './CompoTE';
+import CompoTE from '../components/CompoTE';
 
 
 const mapStateToProps = (state) => ({

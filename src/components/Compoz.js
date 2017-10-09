@@ -1,24 +1,21 @@
 // import dependencies
 import React from 'react';
 
-import ListLabelsContainer from './ListLabelsContainer';
-import ConnectedCompoTE from './ConnectedCompoTE';
+import ListLabelsContainer from '../containers/ListLabelsContainer';
+import ConnectedCompoTE from '../containers/ConnectedCompoTE';
+import NewLine from '../containers/NewLine';
+import Clear from '../containers/Clear';
+import Undo from '../containers/Undo';
+import Redo from '../containers/Redo';
 import AddLabel from './AddLabel';
-import Undo from './Undo';
-import Redo from './Redo';
-import Clear from './Clear';
-import NewLine from './NewLine';
 import LoginButtons from './LoginButtons';
-import {startListening} from '../firebase/fbListeners';
 
 import style from '../styling/main.css';
 /*************************************/
 
 
 class Compoz extends React.Component {
-    componentDidMount() {
-        startListening();
-    }
+
     render() {
         return (
             <div>
@@ -30,9 +27,7 @@ class Compoz extends React.Component {
                         <Clear />
                         <NewLine />
                     </div>
-                    <div className={style.editor}>
-                        <ConnectedCompoTE />
-                    </div>
+                    <ConnectedCompoTE />
                 </div>
                 <div className={style.clickBoard}>
                     <ListLabelsContainer />

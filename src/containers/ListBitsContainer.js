@@ -2,15 +2,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
 // import selector
-import {getBitsByLabelId} from '../reducers';
+import {getBitsIdsByLabelId} from '../reducers';
 // import child Component
-import ListBits from './ListBits';
+import ListBits from '../components/ListBits';
 /*************************************/
 
 
 const mapStateToProps = (state, {labelId}) => (
-    {// TODO: create another selector that returns the IDs only
-        bitIds: getBitsByLabelId(state, labelId).map(bit => bit.id)
+    {
+        bitIds: getBitsIdsByLabelId(state, labelId)
     }
 );
 

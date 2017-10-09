@@ -2,8 +2,6 @@
  // Separating all action creators for documentation purposes
 //  It's just easier to find all already existing actions
 
-export const logout = () => ({type: "LOGOUT"});
-
 export const updateEstate = (eState) => (
   {
     type: "UPDATE_EDITOR",

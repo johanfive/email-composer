@@ -1,7 +1,7 @@
 // import dependencies
 import React from 'react';
 // import child Component
-import BitContainer from './BitContainer';
+import BitContainer from '../containers/BitContainer';
 // Styles
 import style from '../styling/label.css';
 /*************************************/

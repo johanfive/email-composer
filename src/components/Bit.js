@@ -11,15 +11,15 @@ import style from '../styling/bit.css';
 
 const Bit = ({text, bitId, handleClick, eState}) => (
     <div className={style.wrapper}>
+        <Close bitId={bitId} />
         <button
-          className={style.content}
-          type="button"
-          onClick={(e) => {handleClick(e, eState)}}
-          value={text}
+            className={style.content}
+            type="button"
+            onClick={(e) => {handleClick(e, eState)}}
+            value={text}
         >
             {text}
         </button>
-        <Close bitId={bitId} />
     </div>
 );
 

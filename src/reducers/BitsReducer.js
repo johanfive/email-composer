@@ -1,6 +1,14 @@
 import {combineReducers} from 'redux';
 
-const initBits = {};
+const initBits = {
+/*
+    anId: {
+        id: 'anId',
+        text: 'someText',
+        label: 'aLabelId'
+    },
+*/
+};
 const byId = (state = initBits, action) => {
   switch (action.type) {
     case "UPSERT_BIT":
@@ -14,16 +22,13 @@ const byId = (state = initBits, action) => {
       delete(copy[action.id]);
       return copy;
       break;
-    case "LOGOUT":
-      return {};
-      break;
     default:
       return state;
   }
 };
 
 
-const initAllIds = [];
+const initAllIds = [/* 'anId', */];
 const allIds = (state = initAllIds, action) => {
   switch (action.type) {
     case "UPSERT_BIT":
@@ -32,9 +37,6 @@ const allIds = (state = initAllIds, action) => {
       break;
     case "DELETE_BIT":
       return state.filter(id => id !== action.id);
-      break;
-    case "LOGOUT":
-      return [];
       break;
     default:
       return state;
@@ -57,6 +59,11 @@ export const getAllBits = (state) => {
 export const getBitsByLabelId = (state, id) => {
   let allBits = getAllBits(state);
   return allBits.filter(bit => bit.label == id);
+};
+
+export const getBitsIdsByLabelId = (state, id) => {
+  let matches = getBitsByLabelId(state, id);
+  return matches.map(bit => bit.id);
 };
 
 export const getTextByBitId = (state, id) => {

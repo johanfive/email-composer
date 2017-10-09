@@ -2,15 +2,15 @@
 import React from 'react';
 // import children components
 import Close from './Close';
-import LabelNameContainer from './LabelNameContainer';
-import AddBitContainer from './AddBitContainer';
-import ListBitsContainer from './ListBitsContainer';
+import LabelNameContainer from '../containers/LabelNameContainer';
+import AddBitContainer from '../containers/AddBitContainer';
+import ListBitsContainer from '../containers/ListBitsContainer';
 // Styles
 import style from '../styling/label.css';
 /*************************************/
 
 
-const Label = ({labelId}) => {console.log("label"); return (
+const Label = ({labelId}) => (
     <div className={style.label}>
         <div className={style.header}>
             <Close labelId={labelId} />
@@ -19,6 +19,6 @@ const Label = ({labelId}) => {console.log("label"); return (
         <AddBitContainer labelId={labelId} />
         <ListBitsContainer labelId={labelId} />
     </div>
-)};
+);
 
 export default Label;

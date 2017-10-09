@@ -1,30 +1,37 @@
-import {database} from "../firebase/firebaseStuff";
+import {database, auth} from "../firebase/firebaseStuff";
 
 const db = database.ref();
-let userID = 'userID';
-/*
-if (loggedIn) {
-  userID = firebase.auth().currentUser.uid;
-}
-*/
-const userRef = db.child('users').child(userID);
+let userRef;
 
+auth.onAuthStateChanged(user => {
+    if (user) {
+        const uid = user.uid;
+        userRef = db.child('users').child(uid);
+    } else {
+        userRef = null;
+    }
+});
 
 
 //--- L A B E L related actions ---//
 export const addLabel = () => {
-  const labelKey = userRef.child('Labels').push().key;
+    if (userRef) {
+        const labelKey = userRef.child('Labels').push().key;
 
-  const newLabel = {
-    id: labelKey,
-    name: ""
-  };
+        const newLabel = {
+          id: labelKey,
+          name: ""
+        };
 
-  const data = {
-    [`Labels/${labelKey}`]: newLabel
-  };
+        const data = {
+          [`Labels/${labelKey}`]: newLabel
+        };
 
-  userRef.update(data);
+        userRef.update(data);
+        // this is a Promise but there's no need to return it
+        // since listeners are set up in fbListeners.js.
+        // If fulfilled, the listeners will get triggered, otherwise nothing happens
+    }
 };
 
 

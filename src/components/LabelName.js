@@ -3,12 +3,12 @@ import React from 'react';
 /*************************************/
 
 
-const LabelName = ({name, handleChange}) => (
+const LabelName = ({name, handleChange, handleClick, handleReturn}) => (
     <input
         value={name || "name"}
         onChange={handleChange}
-        onClick={(e) => e.target.select()}
-        onKeyDown={(e) => {if (e.keyCode == 13) {e.target.blur()}}}
+        onClick={handleClick}
+        onKeyDown={handleReturn}
     />
 );
 

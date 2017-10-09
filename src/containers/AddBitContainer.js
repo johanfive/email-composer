@@ -3,7 +3,7 @@ import React from 'react';
 // import all actions as action for readability
 import * as fbAction from '../actions/fbActions'; // addBit action
 // import child Component
-import AddBit from './AddBit';
+import AddBit from '../components/AddBit';
 /*************************************/
 
 
@@ -20,7 +20,7 @@ export default class AddBitContainer extends React.Component {
     handleSubmit(e) {
         // if key pressed is Enter/Return
         if (e.keyCode == 13) {
-          let {text} = this.state;
+          const {text} = this.state;
              //regex.test to make sure the input starts with a non-whitespace character
             // prevents empty Bits
             if (/^\S+/.test(text)) {

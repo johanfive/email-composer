@@ -25,8 +25,8 @@ export const getNameOfLabel = (state, id) => {
   return fromLabelsReducer.getNameOfLabel(state.labels, id);
 }
 
-export const getBitsByLabelId = (state, id) => {
-  return fromBitsReducer.getBitsByLabelId(state.bits, id);
+export const getBitsIdsByLabelId = (state, id) => {
+  return fromBitsReducer.getBitsIdsByLabelId(state.bits, id);
 }
 
 export const getTextByBitId = (state, id) => {
