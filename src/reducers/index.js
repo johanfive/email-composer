@@ -1,34 +1,16 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
+import BitsByLabelReducer from './BitsByLabelReducer';
 import LabelsReducer from './LabelsReducer';
 import BitsReducer from './BitsReducer';
 import EditorReducer from './EditorReducer';
+//______________________________________________________________________________
 
-import * as fromLabelsReducer from './LabelsReducer';
-import * as fromBitsReducer from './BitsReducer';
 
-export const reducer = combineReducers({
-  labels: LabelsReducer,
-  bits: BitsReducer,
-  editor: EditorReducer
+const rootReducer = combineReducers({
+    bitsByLabel: BitsByLabelReducer,
+    labels: LabelsReducer,
+    bits: BitsReducer,
+    editor: EditorReducer
 });
 
-
-export const getAllLabels = (state) => {
-  return fromLabelsReducer.getAllLabels(state.labels);
-}
-
-export const getAllLabelIds = (state) => {
-  return fromLabelsReducer.getAllLabelIds(state.labels);
-}
-
-export const getNameOfLabel = (state, id) => {
-  return fromLabelsReducer.getNameOfLabel(state.labels, id);
-}
-
-export const getBitsIdsByLabelId = (state, id) => {
-  return fromBitsReducer.getBitsIdsByLabelId(state.bits, id);
-}
-
-export const getTextByBitId = (state, id) => {
-  return fromBitsReducer.getTextByBitId(state.bits, id);
-}
+export default rootReducer;

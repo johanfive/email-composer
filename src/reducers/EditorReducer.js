@@ -1,22 +1,21 @@
-import {EditorState} from 'draft-js';
+import { actionType } from '../constants';
+import { EditorState } from 'draft-js';
+//______________________________________________________________________________
 
 
 const initEditor = {
-  editorState: EditorState.createEmpty()
+    editorState: EditorState.createEmpty()
 };
 
-
 const EditorReducer = (state = initEditor, action) => {
-  switch (action.type) {
-    case "UPDATE_EDITOR":
-      return {
-        ...state,
-        editorState: action.editorState
-      };
-      break;
-    default:
-      return state;
-  }
-}
+    switch (action.type) {
+        case actionType.updateEditor:
+        return {
+            editorState: action.editorState
+        };
+        default:
+        return state;
+    }
+};
 
 export default EditorReducer;
