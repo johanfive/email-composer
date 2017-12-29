@@ -20,6 +20,7 @@ export const deleteLabel = (key) => {
 };
 
 
+// TODO This is slow in practice. Investigate
 export const deleteBit = (id) => {
     db.child(`Bits/${id}/label`).once('value', snap => {
         const parentLabelKey = snap.val();

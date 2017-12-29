@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { getLabelTitle } from '../selectors';
 import { watchTitleChanges } from './firebaseWatchers';
 import { updateTitle } from './firebaseActions';
+import Input from './styledWrapper';
 //______________________________________________________________________________
+
 
 
 // C O M P O N E N T
@@ -14,7 +16,7 @@ class LabelTitle extends React.Component {
     render() {
         const {id, title, handleChange} = this.props;
         return (
-            <input
+            <Input
                 value={title}
                 onChange={(e) => handleChange(id, e)}
                 onClick={(e) => e.target.select()}

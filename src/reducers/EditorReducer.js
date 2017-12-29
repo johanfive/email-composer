@@ -10,9 +10,9 @@ const initEditor = {
 const EditorReducer = (state = initEditor, action) => {
     switch (action.type) {
         case actionType.updateEditor:
-        return {
-            editorState: action.editorState
-        };
+            return {
+                editorState: action.editorState
+            };
         default:
         return state;
     }

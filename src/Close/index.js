@@ -1,14 +1,16 @@
 import React from 'react';
 import { deleteLabel, deleteBit } from './firebaseActions';
+import Button from './styledWrapper';
 //______________________________________________________________________________
+
 
 
 const Close = ({labelId, bitId}) => {
     if (labelId) {
-        return <button onClick={() => deleteLabel(labelId)}>x</button>;
+        return <Button onClick={() => deleteLabel(labelId)}><span>&#10005;</span></Button>;
     }
     if (bitId) {
-        return <button onClick={() => deleteBit(bitId)}>x</button>;
+        return <Button onClick={(event) => {deleteBit(bitId); event.stopPropagation();}} bit ><span>&#10005;</span></Button>;
     }
 };
 

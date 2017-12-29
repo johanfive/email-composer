@@ -3,15 +3,17 @@ import { connect } from 'react-redux';
 import { getBitText } from '../selectors';
 import { updateEditor } from './actions';
 import Close from '../Close/';
+import Wrapper from './styledWrapper';
 //______________________________________________________________________________
+
 
 
 // C O M P O N E N T
 const Bit = ({id, text, onClick}) => (
-    <div>
-        <button onClick={() => onClick(text)}>{text}</button>
+    <Wrapper onClick={() => onClick(text)}>
         <Close bitId={id} />
-    </div>
+        {text}
+    </Wrapper>
 );
 
 

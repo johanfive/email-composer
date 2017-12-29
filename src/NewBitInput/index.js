@@ -1,6 +1,8 @@
 import React from 'react';
 import { createNewBit } from './firebaseActions';
+import Input from './styledWrapper';
 //______________________________________________________________________________
+
 
 
 export default class NewBitInput extends React.PureComponent {
@@ -28,7 +30,7 @@ export default class NewBitInput extends React.PureComponent {
     }
     render() {
         return (
-            <input
+            <Input
                 value={this.state.text}
                 onChange={this.handleChange}
                 onKeyDown={this.handleSubmit}

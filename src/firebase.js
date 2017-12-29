@@ -7,7 +7,9 @@ const config = {
     authDomain: "compoz-6c03b.firebaseapp.com",
     databaseURL: "https://compoz-6c03b.firebaseio.com"
 };
+
 firebase.initializeApp(config);
+
 const database = firebase.database();
 
 

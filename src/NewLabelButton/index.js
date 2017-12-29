@@ -1,8 +1,10 @@
 import React from 'react';
 import { createNewLabel } from './firebaseActions';
+import Button from './styledWrapper';
 //______________________________________________________________________________
 
 
-const NewLabelButton = () => <button onClick={createNewLabel}>+</button>;
+
+const NewLabelButton = () => <Button onClick={createNewLabel}></Button>;
 
 export default NewLabelButton;

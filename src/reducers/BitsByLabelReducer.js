@@ -6,13 +6,13 @@ const bits = (state = [], action) => {
     switch (action.type) {
 
         case actionType.addBit:
-        //The .some() function returns true if the callback returns true for any element.
-        const idExist = state.some(id => id === action.bitId);
-        if (idExist) {
-            return state;
-        } else {
-            return state.concat(action.bitId);
-        }
+            //The .some() function returns true if the callback returns true for any element.
+            const idExist = state.some(id => id === action.bitId);
+            if (idExist) {
+                return state;
+            } else {
+                return state.concat(action.bitId);
+            }
 
         case actionType.deleteBit:
             return state.filter(id => id !== action.bitId);

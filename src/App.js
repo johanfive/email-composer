@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { auth } from './firebase';
-import NewLabelButton from './NewLabelButton/';
-import ListLabels from './ListLabels/';
 import LogInOut from './LogInOut';
-import CompoTE from './CompoTE/';
-import EditorButtons from './EditorButtons/'
-import logo from './logo.svg';
-import './App.css';
+import EditorWrapper from './EditorWrapper/';
+import ClickBoard from './ClickBoard';
+import ListLabels from './ListLabels/';
+import Logo from './Logo/';
+import './App.css'; // Left this one as a reminder to self that this is possible
 //______________________________________________________________________________
 
 
@@ -26,24 +25,12 @@ class App extends Component {
         const { isLoggedIn } = this.state;
         return (
             <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h1 className="App-title">Compoz</h1>
-                </header>
                 <LogInOut isLoggedIn={isLoggedIn} />
-                <br />
-                {
-                    isLoggedIn ?
-                        (<div><ListLabels /><NewLabelButton /></div>) :
-                        null
-                }
-                <br />
-                <hr />
-                <EditorButtons />
-                <br />
-                <CompoTE />
-                <br />
-                <br />
+                <ClickBoard>
+                    <Logo />
+                    {isLoggedIn ? <ListLabels /> : null}
+                </ClickBoard>
+                <EditorWrapper />
             </div>
         );
     }

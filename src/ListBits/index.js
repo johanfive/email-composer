@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { getBitsIdsByLabel } from '../selectors';
 import { watchBitsEvents } from './firebaseWatchers';
 import Bit from '../Bit/';
+import Wrapper from './styledWrapper';
 //______________________________________________________________________________
+
 
 
 // C O M P O N E N T
@@ -14,7 +16,7 @@ class ListBits extends React.Component {
     render() {
         const {bits} = this.props;
         const listTheBits = bits.map(id => <Bit key={id} id={id} />);
-        return <div>{listTheBits}</div>;
+        return <Wrapper>{listTheBits}</Wrapper>;
     }
 }
 

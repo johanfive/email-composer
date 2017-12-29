@@ -1,17 +1,20 @@
 import React from 'react';
-import { auth, provider } from './firebase';
+import { auth, provider } from '../firebase';
+import Wrapper from './styledWrapper';
 //______________________________________________________________________________
 
 
-class Loginout extends React.Component {
+class LogInOut extends React.Component {
     constructor() {
         super();
         this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
     }
+
     login() {
         auth.signInWithPopup(provider);
     }
+
     logout() {
         auth.signOut().then(function() {
             console.log('Signed out');
@@ -20,16 +23,17 @@ class Loginout extends React.Component {
             console.log(error);
         });
     }
+
     render() {
         const {isLoggedIn} = this.props;
         return (
-            <div>
+            <Wrapper>
                 {isLoggedIn ?
                     <button type="button" onClick={this.logout} >Logout</button> :
-                    <button type="button" onClick={this.login}>Login</button>}
-            </div>
+                    <button type="button" onClick={this.login} >Login</button>}
+            </Wrapper>
         );
     }
 }
 
-export default Loginout;
+export default LogInOut;

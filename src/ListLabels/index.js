@@ -4,6 +4,8 @@ import { actionType } from '../constants';
 import { getLabelsIds } from '../selectors';
 import { watchLabelsEventsThen } from './firebaseWatchers';
 import Label from '../Label/';
+import NewLabelButton from '../NewLabelButton/';
+import Wrapper from './styledWrapper';
 //______________________________________________________________________________
 
 
@@ -20,7 +22,7 @@ class ListLabels extends React.Component {
         const listTheLabels = labelsIds.map(
             id => <Label key={id} id={id} />
         );
-        return <div>{listTheLabels}</div>;
+        return <Wrapper>{listTheLabels}<NewLabelButton /></Wrapper>;
     }
 }
 

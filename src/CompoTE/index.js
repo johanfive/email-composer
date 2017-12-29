@@ -3,16 +3,20 @@ import { connect } from 'react-redux';
 import {Editor} from 'draft-js';
 import { updateEditor } from './actions';
 import 'draft-js/dist/Draft.css';
+import Wrapper from './styledWrapper';
 //______________________________________________________________________________
+
 
 
 // C O M P O N E N T
 const CompoTE = ({editorState, onChange}) => (
-    <Editor
-        editorState={editorState}
-        onChange={onChange}
-        placeholder="Compose email here"
-    />
+    <Wrapper>
+        <Editor
+            editorState={editorState}
+            onChange={onChange}
+            placeholder="Compose email here"
+        />
+    </Wrapper>
 );
 
 
@@ -26,11 +30,3 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CompoTE);
-
-/*
-&#10609;
-&#11152;
-&#8626;
-&#8629;
-&#9166;
-*/
