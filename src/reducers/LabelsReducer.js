@@ -27,7 +27,6 @@ const byId = (state = {}, action) => {
 };
 
 
-const populateAllIds = ['demo'];
 
 const allIds = (state = [], action) => {
     switch (action.type) {
